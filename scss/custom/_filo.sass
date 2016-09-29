@@ -1,0 +1,639 @@
+
+.clear
+  clear: both
+
+.filo
+  font-family: sans-serif
+
+.filo__album
+  margin: 10px
+
+.filo__album__title
+  font-size: 24px
+  margin: 5px 0
+
+.filo__album__thumbs
+  text-align: center
+  font-size: 0
+
+.filo__album__thumbs__thumb
+  margin: 0
+  display: inline-block
+  position: relative
+  box-sizing: border-box
+  i
+    display: block
+    position: absolute
+    background-repeat: no-repeat
+    background-position: 50% 25%
+    background-size: cover
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+  &:before
+    content: ''
+    display: block
+    margin-top: 100%
+
+.filo__album__thumbs:after
+  content: ''
+  display: block
+  clear: both
+
+.filo__album__thumbs__thumb
+  /* desktop - large screen - 8 images per row
+  width: 12.5%
+  max-width: 300px
+  min-width: 100px
+  /**
+   *max-width: load smaller images on smaller
+   *devices to optimize the page speed
+  /* desktop - 6 images per row
+  /* tablet - 4 images per row
+  /* smartphone - 2 images per row
+
+@media only screen and (max-width: 992px)
+  .filo__album__thumbs__thumb
+    width: 16.66667%
+    max-width: 165.33333px
+
+@media only screen and (max-width: 768px)
+  .filo__album__thumbs__thumb
+    width: 25%
+    max-width: 192px
+
+@media only screen and (max-width: 480px)
+  .filo__album__thumbs__thumb
+    width: 25%
+    max-width: 120px
+
+.filo_loader
+  opacity: .7
+  left: 0
+  top: 50%
+  position: fixed
+  right: 0
+  text-align: center
+  z-index: 1000
+
+.filo__overlay
+  color: #999
+  font-family: arial
+  position: fixed
+  width: 100%
+  height: 100%
+  z-index: 996
+  top: 0
+  left: 0
+
+.filo__overlay__background
+  background: #333
+  opacity: .75
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 997
+  top: 0
+  left: 0
+
+.filo__overlay__container
+  position: relative
+  left: 50%
+  top: 50%
+  border-style: solid
+  border-width: 0px
+  border-color: #fff
+  background: #fff
+  box-shadow: 0px 0px 11px 0px #222222
+  display: none
+  z-index: 998
+
+.filo__overlay__container__left
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QURCQjMxMjdFRDJDMTFFMUJBOUJDRDU5NUJEQjg1NEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QURCQjMxMjhFRDJDMTFFMUJBOUJDRDU5NUJEQjg1NEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBREJCMzEyNUVEMkMxMUUxQkE5QkNENTk1QkRCODU0QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBREJCMzEyNkVEMkMxMUUxQkE5QkNENTk1QkRCODU0QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==")
+  width: 50%
+  height: 100%
+  overflow: hidden
+  position: absolute
+  left: 0px
+  top: 0
+  cursor: pointer
+  z-index: 999
+  .arrow-left
+    background: url(./img/arrow-left.png) no-repeat
+    content: ''
+    display: block
+    -webkit-transition: all 0.3s ease-in-out
+    -moz-transition: all 0.3s ease-in-out
+    -o-transition: all 0.3s ease-in-out
+    transition: all 0.3s ease-in-out
+    height: 106px
+    opacity: 0
+    position: absolute
+    top: 50%
+    margin-top: -53px
+    left: -55px
+    width: 55px
+  &:hover .arrow-left
+    left: 10px
+    opacity: 0.9
+
+.filo__overlay__container__right
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QURCQjMxMjdFRDJDMTFFMUJBOUJDRDU5NUJEQjg1NEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QURCQjMxMjhFRDJDMTFFMUJBOUJDRDU5NUJEQjg1NEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBREJCMzEyNUVEMkMxMUUxQkE5QkNENTk1QkRCODU0QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBREJCMzEyNkVEMkMxMUUxQkE5QkNENTk1QkRCODU0QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==")
+  width: 50%
+  height: 100%
+  overflow: hidden
+  position: absolute
+  right: 0px
+  top: 0
+  cursor: pointer
+  z-index: 999
+  .arrow-right
+    background: url(./img/arrow-right.png) no-repeat
+    content: ''
+    display: block
+    -webkit-transition: all 0.3s ease-in-out
+    -moz-transition: all 0.3s ease-in-out
+    -o-transition: all 0.3s ease-in-out
+    transition: all 0.3s ease-in-out
+    height: 106px
+    opacity: 0
+    position: absolute
+    top: 50%
+    margin-top: -53px
+    right: -55px
+    width: 55px
+  &:hover .arrow-right
+    right: 10px
+    opacity: 0.9
+
+.filo__overlay__container__close
+  opacity: 1
+  position: absolute
+  right: 0
+  top: 0
+  cursor: pointer
+  display: none
+  z-index: 999
+
+.filo__overlay__container__meta
+  background: rgba(0, 0, 0, 0.6)
+  bottom: 0
+  box-sizing: border-box
+  font-size: 14px
+  opacity: 0.1
+  padding: 7px
+  position: absolute
+  width: 100%
+  -webkit-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
+  -o-transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out
+
+.filo__overlay__container__meta__count
+  display: inline-block
+  margin-left: 10px
+
+.filo__overlay__container__meta__album
+  color: #fff
+  display: inline-block
+
+.filo__overlay__container__full
+  background: url(./img/full-screen-white.png) top left no-repeat
+  background-size: cover
+  cursor: pointer
+  -webkit-transition: all 0.1s ease-in-out
+  -moz-transition: all 0.1s ease-in-out
+  -o-transition: all 0.1s ease-in-out
+  transition: all 0.1s ease-in-out
+  height: 26px
+  position: absolute
+  right: 12px
+  top: 12px
+  width: 26px
+  z-index: 1000
+  &:hover
+    height: 32px
+    right: 10px
+    top: 10px
+    width: 32px
+
+.filo__overlay__container:hover .filo__overlay__container__meta
+  opacity: 1
+
+.filo__overlay img.filo__full__picture
+  z-index: 998
+  width: 100%
+  height: 100%
+
+.filo_loader
+  .progress-bar
+    background-color: #1a1a1a
+    display: none
+    height: 25px
+    padding: 5px
+    width: 80%
+    border-radius: 5px
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444
+    max-width: 350px
+    text-align: left
+    span
+      display: none
+      height: 100%
+      border-radius: 3px
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset
+      transition: width .4s ease-in-out
+  .blue span
+    background-color: #34c2e3
+  .orange span
+    background-color: #fecf23
+    background-image: linear-gradient(to-top, #fecf23, #fd9215)
+  .green span
+    background-color: #a5df41
+    background-image: linear-gradient(to-top, #a5df41, #4ca916)
+  .stripes span
+    background-size: 30px 30px
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)
+    animation: animate-stripes 3s linear infinite
+  .shine span
+    position: relative
+    &::after
+      content: ''
+      opacity: 0
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background: #fff
+      border-radius: 3px
+      animation: animate-shine 2s ease-out infinite
+  .glow span
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.7) inset, 0 -5px 5px rgba(255, 255, 255, 0.7) inset
+    animation: animate-glow 1s ease-out infinite
+
+@keyframes animate-stripes
+  0%
+    background-position: 0 0
+
+  100%
+    background-position: 60px 0
+
+
+@keyframes animate-shine
+  0%
+    opacity: 0
+    width: 0
+
+  50%
+    opacity: .5
+
+  100%
+    opacity: 0
+    width: 95%
+
+
+@keyframes animate-glow
+  0%
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.7) inset, 0 -5px 5px rgba(255, 255, 255, 0.7) inset
+
+  50%
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.3) inset, 0 -5px 5px rgba(255, 255, 255, 0.3) inset
+
+  100%
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.7) inset, 0 -5px 5px rgba(255, 255, 255, 0.7) inset
+
+
+.filo__template-1 .filo__album__thumbs__thumb
+  position: relative
+  i
+    border: 1px dashed #555
+    -webkit-box-shadow: 3px 4px 6px #999
+    -moz-box-shadow: 3px 4px 6px #999
+    box-shadow: 3px 4px 6px #999
+  .before
+    display: block
+
+.filo__template-2 .filo__album__thumbs__thumb
+  background: none repeat scroll 0 0 #FFF
+  border: 1px solid #BBB
+  box-shadow: 0 8px 4px #CCC
+  height: 87px
+  position: relative
+  width: 87px
+  padding: 5px 5px 13px
+  margin-bottom: 30px
+  i
+    border: none
+  .before
+    display: block
+  &:nth-child(3n + 1)
+    -moz-transform: rotate(-15deg)
+    -webkit-transform: rotate(-15deg)
+    -ms-transform: rotate(-15deg)
+    -o-transform: rotate(-15deg)
+    z-index: 2
+  &:nth-child(3n + 2)
+    margin-left: -100px
+  &:nth-child(3n)
+    -moz-transform: rotate(15deg)
+    -webkit-transform: rotate(15deg)
+    -ms-transform: rotate(15deg)
+    -o-transform: rotate(15deg)
+    z-index: 3
+    margin-left: -100px
+    margin-right: 100px
+  &:after
+    content: '\A'
+    display: block
+    clear: both
+    float: none
+
+.filo_loader, .progress-bar
+  display: none !important
+
+.filo__album__thumbs__thumb
+  width: 40%
+  margin: 20px 2.5%
+  i
+    border: 0px!important
+    box-shadow: none!important
+
+
+
+
+h3
+  &.fb-album-heading, &.fb-account-heading
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    display: inline-block
+    margin: 0px
+    margin-left: 10px
+    font-weight: lighter
+    color: rgba(59, 89, 152, 1)
+  &.fb-album-heading
+    cursor: pointer
+  &.fb-album-heading-single
+    cursor: default !important
+    display: block !important
+
+ul
+  &.fb-albums, &.fb-photos
+    list-style: none
+    list-style-type: none
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-size: 14px
+    margin: 0px
+    padding: 0px
+    min-height: 130px
+    background-image: none
+
+.fb-loading-image
+  background-image: url('loader.gif') !important
+  background-position: center center
+  background-repeat: no-repeat
+
+.fb-loading
+  background-color: #f7f7f7
+  border-radius: 6px
+  width: 64px
+  height: 64px
+  background-image: url('loader.gif')
+  background-position: center center
+  background-repeat: no-repeat
+
+li
+  &.fb-album
+    position: relative
+    display: inline-block
+    width: 130px
+    height: 130px
+    overflow: hidden
+    padding: 0px
+    background-color: #f7f7f7
+    /*margin-top: -4px;
+     *margin-bottom: 3px;
+     *margin-right: 3px;
+    background-image: url('loader.gif')
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+    border: 1px solid #fff
+    border-bottom-style: none
+  &.fb-photo
+    position: relative
+    display: inline-block
+    width: 130px
+    height: 130px
+    overflow: hidden
+    padding: 0px
+    background-color: #f7f7f7
+    /*margin-top: -4px;
+     *margin-bottom: 3px;
+     *margin-right: 3px;
+    background-image: url('loader.gif')
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+    border: 1px solid #fff
+    border-bottom-style: none
+    &:hover
+      /*border:2px solid rgba(59,89,152,1);
+      .image-check
+        display: block
+    .image-check
+      display: none
+      position: absolute
+      width: 25px
+      height: 25px
+      background-color: rgba(59, 89, 152, 1)
+      &.checked
+        display: block
+        background-image: url('check.png')
+        background-position: left top
+        background-repeat: no-repeat
+  &.fb-album img
+    display: none
+
+div
+  &.fb-album-title
+    color: #fff
+    background-color: rgba(59, 89, 152, 1)
+    position: relative
+    margin-top: 0px
+    padding: 5px
+    display: none
+  &.fb-album-count
+    background-color: rgba(59, 89, 152, 0.8)
+    color: #ffffff
+    position: absolute
+    top: 0
+    text-align: center
+    padding: 5px
+    margin: 6px
+    display: block
+    min-width: 34px
+    border-radius: 5px
+    -webkit-transition: top .3s linear
+    transition: top .3s linear
+
+.fb-album-preview
+  display: none
+
+.fb-photo-thumb, .fb-photo-thumb-link
+  border: none
+  text-decoration: none
+
+img.fb-albums-list
+  border: none
+  display: inline-block
+  cursor: pointer
+  margin-bottom: 10px
+  vertical-align: middle
+
+.fb-account-info
+  margin-bottom: 10px
+  img
+    display: inline-block
+    vertical-align: middle
+
+/*Simple lightbox
+
+.fb-preview-overlay
+  background-color: rgba(59, 89, 152, 0.7)
+  position: fixed
+  top: 0px
+  left: 0px
+  z-index: 999
+  background-image: url('loader.gif')
+  background-position: center center
+  background-repeat: no-repeat
+  width: 100%
+  height: 100%
+  text-align: center
+  overflow: auto
+  display: none
+
+.fb-preview-img, .fb-preview-img-prev, .fb-preview-img-next
+  display: inline-block
+  vertical-align: middle
+
+.fb-preview-img
+  max-width: 100%
+  width: auto
+
+.fb-preview-img-prev, .fb-preview-img-next
+  cursor: pointer
+  display: none
+  margin-top: auto
+  position: fixed
+  top: 50%
+
+.fb-preview-img-prev
+  left: 0
+  float: left
+
+.fb-preview-img-next
+  right: 20px
+  float: right
+
+.fb-photo-text
+  display: none
+
+.fb-comment-text
+  display: inline-block
+  margin-left: 10px
+  vertical-align: top
+  width: calc(100% - 60px)
+
+.fb-comment-date
+  color: #969696
+  float: right
+  font-size: 11px
+
+.fb-comment-more
+  font-family: "Segoe UI",Tahoma,Geneva,Verdana,sans-serif
+  color: rgba(59, 89, 152, 1)
+  text-align: center
+  background-color: #e1e2e3
+  cursor: pointer
+  padding: 6px
+  margin-bottom: 10px
+  margin-left: auto
+  margin-right: auto
+  font-size: 12px
+
+img.fb-comment-account
+  display: inline-block
+  width: 50px
+  height: 50px
+  background-image: url('loader.gif')
+  background-position: center center
+  background-repeat: no-repeat
+
+.fb-comment-account
+  text-decoration: none
+  color: rgba(59, 89, 152, 1)
+
+.fb-preview-text, .fb-comment, .fb-album-text
+  display: block
+  background-color: #e1e2e3
+  margin-left: auto
+  margin-right: auto
+  font-size: 12px
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  text-align: left
+  padding: 6px
+  display: block
+  clear: both
+
+.fb-preview-text
+  .addthis_toolbox
+    display: block
+    margin-top: 6px
+    margin-bottom: 6px
+  display: table !important
+  clear: both !important
+
+.fb-album-text
+  display: table !important
+  clear: both !important
+  margin-bottom: 6px
+  width: 100%
+
+.fb-comment
+  background-color: #e9eaeb
+  border-bottom: 1px solid #e1e2e3
+  width: calc(100% - 60px)
+
+.fb-preview-text a
+  color: rgba(59, 89, 152, 1)
+
+.fb-preview-content
+  margin-top: 30px
+
+.fb-like-container
+  display: block
+  float: right
+  margin-left: 6px
+
+.fb-btn-more
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-weight: bold
+  display: block
+  color: #fff
+  background: rgba(59, 89, 152, 1)
+  padding: 12px
+  text-align: center
+  cursor: pointer
+
+.fb-albums-more
+  display: none
+
+
+.filo__album__thumbs
+  display: block
+  width: 100%
+  padding-left: 75px
+
+.filo__album__thumbs__thumb
+  width: 15%

@@ -1,0 +1,965 @@
+$gutter: 70px
+
+#bordered
+  border: 0px solid #fff
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  pointer-events: none
+#loading
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 9999
+  background: none
+  pointer-events: none
+
+#overlay
+  height: 100vh
+  top: 0
+  background: $beige
+  pointer-events: none
+#top
+  height: 50vh
+  top: 0
+  left: 0
+  width: 100%
+  position: absolute
+  background: #000
+#bottom
+  height: 50vh
+  bottom: 0
+  left: 0
+  width: 100%
+  position: absolute
+  background: #000
+
+
+/* Loader animation
+#loader
+  z-index: 9999
+  position: fixed
+  left: 0
+  top: 0
+  height: 100%
+  background: #FFF
+  width: 0%
+  content: ""
+
+
+h2
+  font-family: $g_regular
+  font-size: 60px
+  font-weight: normal
+  padding-top: 80px
+  margin-top: 0
+  letter-spacing: 6px
+  @media (max-width: $xss)
+    font-size: 40px
+h3
+  font-family: $g_regular
+  font-size: 30px
+  font-weight: normal
+  margin-top: 50px
+#landing
+  height: 100%
+  width: 100%
+  position: relative
+  background: url('assets/gif/scie.gif') no-repeat center center
+  background-size: cover
+  .overlay
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #000
+    opacity: 0.8
+  #logo
+    width: 700px
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translateX(-50%) translateY(-50%)
+
+nav
+  width: 90%
+  height: 100vh
+  background: #FFF
+  position: fixed
+  z-index: 996
+  top: 0
+  left: 0
+  transition: .3s all
+  transition-timing-function: ease-in
+  -webkit-box-shadow: 4px 0px 16px -2px rgba(0,0,0,0.50)
+  -moz-box-shadow: 4px 0px 16px -2px rgba(0,0,0,0.50)
+  box-shadow: 4px 0px 16px -2px rgba(0,0,0,0.50)
+  @media (max-width: $xs)
+    box-shadow: none
+    height: 75px
+    width: 100%
+    top: 0
+    left: 0
+    right: 0
+  &.closed
+    left: calc( -90% + 75px)
+    @media (max-width: $xs)
+      left: 0
+  &.is-really-closed
+    left: -100%!important
+  #devis
+    width: 50px
+    height: 50px
+    background: $beige
+    display: block
+    margin-left: 16px
+    text-align: center
+    color: #FFF
+    span
+      font-size: 12px
+    &::before
+      content: ""
+      position: absolute
+      left: 16px
+      top: 50px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 19.2px 25px 0 0
+      border-color: $beige transparent transparent transparent
+      @media (max-width: $xs)
+        z-index: 9
+    &::after
+      content: ""
+      position: absolute
+      left: 41px
+      top: 50px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0   25px  19.2px 0
+      border-color:  transparent $beige transparent transparent
+      @media (max-width: $xs)
+        z-index: 9
+  a
+    text-decoration: none
+    color: #000
+  .navbar
+    position: absolute
+    right: 0
+    height: 100%
+    width: 75px
+    transition: all .3s
+    @media (max-width: $xs)
+      width: 100%
+      box-shadow: 4px 0px 16px 2px rgba(0,0,0,0.50)
+
+  #navbara
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg)
+    padding: 25px 50px
+    transition: .3s all
+    &:hover
+      color: $beige
+    @media (max-width: $xs)
+      position: absolute
+      padding: 0
+      transform: translateX(-50%) translateY(-50%) rotate(0)
+  /*#menu
+    @media (max-width: $xs)
+      position: absolute
+      transition: 1s all
+      left: 50%
+      top: 50px
+      transform: translateX(-50%)
+      background: #FFF
+      width: 100%
+      height: 100vh
+      &.closed
+        left: -100%
+        top: 50px
+        position: absolute
+
+    /*.container
+      display: inline-block
+      left: 50%
+      margin-top: 40vh
+      position: relative
+      transform: translateX(-50%) translateY(-50%)
+    /*a
+      font-family: $g_regular
+      font-size: 60px
+      display: block
+      letter-spacing: 10px
+      @media (max-width: $xs)
+        font-size: 40px
+      &:hover, &.current
+        background: $beige
+        color: #FFF
+
+  /*.coord
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    font-family: 'Source Sans Pro', sans-serif
+    font-size: 13px
+    .adress
+      font-size: 15px
+      font-weight: bold
+    .copy
+      font-size: 12px
+    p
+      color: $beige
+
+#logo_fixed
+  width: 150px
+  height: auto
+  position: fixed
+  left: 15px
+  bottom: 15px
+  z-index: 999
+  transition: opacity .3s
+  @media (max-width: $xs)
+    display: none
+  &.is-really-closed
+    opacity: 0
+
+#about
+  min-height: 100%
+  font-size: 0
+  #pic1
+    content: ""
+    width: 50%
+    display: inline-block
+    background: url('assets/gif/angle-compress.gif') no-repeat center center
+    background-size: cover
+    -webkit-background-size: cover
+    position: absolute
+    height: 100vh
+    padding-left: 75px
+    &::after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: rgba(0,0,0,0.7)
+    @media (max-width: $xs)
+      display: none
+    &.is_stuck
+      position: fixed
+      top: 0
+  .about
+    width: 50%
+    display: inline-block
+    font-size: 16px
+    padding: 0 $gutter
+    vertical-align: top
+    margin-left: 50%
+    padding-bottom: 50px
+    p
+      line-height: calc(16px * 1.5)
+    @media (max-width: $xs)
+      width: 100%
+      margin-left: 0
+      padding: 0 25px
+    .quote
+      font-family: $g_italic
+      font-size: 20px
+      font-weight: normal
+      text-align: center
+      margin-top: 75px
+    .note
+      font-size: 16px
+      color: $beige
+      font-family: $source, sans-serif
+      margin-top: 55px
+      text-align: center
+      margin-bottom: 100px
+#services
+  font-size: 0
+  position: relative
+  min-height: 100%
+  padding-left: 75px
+  @media (max-width: $xs)
+    padding: 0 25px
+  h2
+    padding-left: $gutter
+    @media (max-width: $xs)
+      padding: 0
+  p
+    font-size: 16px
+    width: 50%
+    margin: 0 auto
+    text-align: center
+    line-height: calc(16px * 1.5)
+    @media (max-width: $xs)
+      width: 100%
+  h3
+    text-align: center
+    color: $beige
+    font-style: italic
+
+  .services_list
+    list-style: none
+    font-size: 0px
+    color: #000
+    position: relative
+    list-style-type: none
+    margin-top: 75px
+    @media (max-width: $xs)
+      padding-left: 0
+    li
+      margin-bottom: 25px
+      font-size: 13px
+      color: $dark_grey
+      text-transform: uppercase
+      font-family: $source
+      font-weight: bold
+      letter-spacing: 1.1px
+    .right
+      width: 50%
+      min-height: 100%
+      position: relative
+      display: inline-block
+      vertical-align: top
+    .left
+      padding: 0 $gutter
+      width: 50%
+      display: inline-block
+      vertical-align: top
+      @media (max-width: $sm)
+        width: 100%
+      @media (max-width: $xs)
+        padding-left: 0
+        padding-right: 0
+    .sep
+      content: ""
+      display: block
+      position: absolute
+      height: 100%
+      width: 1px
+      border-right: 1px dashed $beige
+      left: calc(50% - 35px)
+      top: -10px
+      transform: translateX(-50%)
+      @media(max-width: $xs)
+        display: none
+p
+  font-family: $garamond
+  font-size: 17px
+  margin-bottom: 30px
+
+
+#process
+  font-size: 0
+  .owl-carousel
+    overflow: hidden
+    img
+      min-width: 100%
+      height: 600px
+    .owl-lazy
+      height: 600px
+      background-size: cover
+  .a
+    display: none
+  .first_a
+    display: block
+  .right
+    padding: 0 $gutter
+    width: 50%
+    display: inline-block
+    vertical-align: top
+    @media (max-width: $xs)
+      width: 100%
+      height: auto
+      padding: 0 25px
+  .process_list
+    list-style: none
+    font-family: $g_regular
+    font-size: 15px
+    line-height: calc(15px * 1.5)
+    color: $grey
+    text-transform: uppercase
+    height: 400px
+    overflow: auto
+    padding: 0
+    position: relative
+    @media (max-width: $xs)
+      width: 100%
+      height: auto
+    .ligne
+      content: ""
+      height: 100%
+      position: absolute
+      left: 10px
+      top: 0
+      width: 1px
+      border-left: 1px dotted $beige
+    li
+      margin-top: 35px
+      padding-left: 50px
+      transition: .3s all
+      &.active
+        color: $beige
+        font-size: 18px
+        &::before
+          background: $beige
+          width: 14px
+          height: 14px
+          left: 4px
+      &:hover
+        cursor: pointer
+        color: $beige
+      &.first
+        margin-top: 5px
+      &::before
+        content: ""
+        width: 10px
+        height: 10px
+        position: absolute
+        left: 6px
+        margin-top: 5px
+        border-radius: 10px
+        border: 2px solid $beige
+        background: #FFF
+        transition: .3s all
+    p
+      font-family: $garamond
+      font-size: 15px
+      text-transform: none
+      color: $dark_grey
+      padding-left: 50px
+  #pic3
+    content: ""
+    height: 575px
+    display: inline-block!important
+    width: 50%
+    margin-top: 80px
+    @media (max-width: $xs)
+      width: 100%
+      height: 300px
+
+
+
+#realisation
+  font-size: 0
+  position: relative
+  padding-top: 100px
+  .right
+    width: 50%
+    display: inline-block
+    padding: 0 $gutter
+    @media (max-width: $xs)
+      padding: 0 75px
+    img
+      height: auto
+      width: 45%
+      margin: 2.5%
+      @media (max-width: $xss)
+        width: 100%
+        margin: 10px 0
+    @media (max-width: $xs)
+      width: 100%
+
+  .left
+    width: 50%
+    display: inline-block
+    text-align: center
+    vertical-align: top
+    @media (max-width: $xs)
+      width: 100%
+    h2
+      margin-top: 0
+      position: absolute
+      top: 50%
+      left: 25%
+      padding-top: 0
+      transform: translateY(0%) translateX(calc(-50% + 75px))
+      @media (max-width: $xs)
+        position: relative
+        transform: translateY(0) translateX(0)
+        top: auto
+        left: auto
+        text-align: left
+        padding-left: 75px
+footer
+  position: relative
+  background: #333
+  #logo_footer
+    position: absolute
+    left: 50%
+    top: 50%
+    width: 150px
+    height: auto
+    z-index: 996
+    transform: translateX(-50%) translateY(-50%)
+  .link_container
+    position: relative
+  p
+    margin-bottom: 0
+  .adress
+    color: $beige
+    font-family: 'Source Sans Pro', sans-serif
+    text-align: center
+    font-size: 15px
+  .copy
+    color: #FFFFFF
+    font-size: 11px
+    font-family: 'Source Sans Pro', sans-serif
+    text-align: center
+    padding: 15px 0
+.contacts
+  font-size: 0
+  height: 250px
+  margin-top: 100px
+  a
+    display: inline-block
+    height: 100%
+    width: 50%
+    text-decoration: none
+    background: #333333
+    position: relative
+    text-align: center
+    transition: 1s all
+    &::after
+      content: ""
+      display: inline-block
+      position: absolute
+      background: transparent
+      width: 99%
+      height: 98%
+      border: none
+      left: 1%
+      top: 2%
+      transition: 1s all
+    &:last-child
+      &::after
+        left: 0%
+    &:hover
+      h4
+        color: #fff
+      &::after
+        /*border: 1px solid $beige
+
+  h4
+    color: #4D4D4D
+    font-size: 28px
+    font-family: $g_italic
+    padding: 0
+    margin: 0
+    transition: 1s all
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translateY(-50%) translateX(-50%)
+    span
+      display: block
+      font-family: 'Source Sans Pro', sans-serif
+      text-transform: uppercase
+      font-size: 14px
+      transform: translateY(10px)
+
+
+
+#contact
+  width: calc(100%)
+  padding: 55px $gutter 100px
+  z-index: 999
+  font-size: 0
+  position: fixed
+  top: 0
+  background: #FFF
+  left: -100%
+  .left, .right
+    display: inline-block
+    width: 50%
+    font-size: 16px
+    text-align: left
+  h2
+    padding-top: 0
+  .left
+    input
+      border: none
+      border-bottom: 1px solid $beige
+      display: block
+      width: 100%
+      padding: 15px 0
+      outline: none
+      margin-top: 10px
+  h3
+    color: $beige
+    font-style: italic
+    font-size: 18px
+    text-align: center
+
+  h4
+    color: #666666
+    font-family: $source
+  .right
+    position: relative
+    padding-bottom: 150px
+    label
+      display: block
+      font-family: $source
+      font-weight: normal
+
+    input[type="button"]
+      color: $beige
+      font-family: $source
+      text-transform: uppercase
+      background: transparent
+      font-weight: bold
+      letter-spacing: 4px
+      border: none
+      font-size: 20px
+      position: absolute
+      right: 0
+      bottom: 0
+
+::-webkit-input-placeholder
+   color: $beige
+:-moz-placeholder
+   color: $beige
+::-moz-placeholder
+   color: $beige
+:-ms-input-placeholder
+   color: $beige
+
+
+input[type="checkbox"]
+  display: none
+input[type="checkbox"] + label span
+  display: inline-block
+  width: 18px
+  height: 18px
+  margin: -1px 4px 0 0
+  vertical-align: middle
+  background: transparent
+  cursor: pointer
+  border: 1px solid $beige
+  margin-right: 15px
+
+input[type="checkbox"]:checked + label span
+  background: url('../img/icon/v-01.png') no-repeat center -1px
+  background-size: contain
+  padding: 5px
+
+
+.devis
+  .right
+    padding-left: 75px
+    label
+      margin-top: 10px
+      &:hover
+        cursor: pointer
+
+
+.se-pre-con
+	position: fixed
+	left: 0px
+	top: 0px
+	width: 100%
+	height: 100%
+	z-index: 999
+	background: url(assets/images/preloader-white-150px.gif) center no-repeat
+  -webkit-animation-play-state: running!important
+  animation-play-state: running!important
+
+
+
+.fa
+  font-family: "FontAwesome"!important
+.fa-facebook
+  font-size: 30px!important
+  position: absolute
+  right: 15px
+  bottom: 30px
+
+/* MENU
+
+#menu
+  z-index: 999
+  width: 100%
+  height: 100%
+  background: #FFF
+  font-size: 0
+  opacity: 1
+  h3
+    margin: 0
+    color: #000
+  .menu-left, .menu-right, .illu-left, .illu-right
+    display: inline-block
+    width: 50%
+    height: 50%
+    font-size: 16px
+    margin: 0
+    vertical-align: top
+  .menu-left
+    background: #FFF
+    font-size: 0
+    h3
+      color: #000
+      display: inline-block
+      width: 20%
+      vertical-align: middle
+      text-align: center
+      letter-spacing: 2.5px
+      &::after
+        content: ""
+        height: 5px
+        width: 100%
+        background: $beige
+        display: block
+        bottom: 0
+        width: 73px
+        margin-left: 50%
+        transform: translateX(-50%)
+    .container
+      display: inline-block
+      width: 80%
+      height: 100%
+      vertical-align: middle
+      position: relative
+    .content
+      top: 50%
+      transform: translateY(-50%)
+      position: absolute
+      left: 50px
+    a
+      font-family: $g_regular
+      font-size: 45px
+      display: block
+      letter-spacing: 10px
+      text-decoration: none
+      span
+        display: inline-block
+        width: auto
+        color: #000
+        &:hover
+          background: $beige
+          color: #FFF
+      &.current
+        span
+          background: $beige
+          color: #FFF
+  .menu-right
+    position: relative
+    width: 50%
+    .infos
+      top: 50%
+      width: 100%
+      transform: translateY(-50%)
+      text-align: center
+      position: absolute
+      a
+        color: #333
+        font-size: 20px
+        font-weight: bold
+        font-style: italic
+        font-family: $g_regular
+        text-decoration: none
+  .illu-left, .illu-right
+    h3, p
+      z-index: 9
+      color: #FFF!important
+  .text
+    z-index: 9
+    position: absolute
+    pointer-events: none
+    h3
+      font-size: 34px
+  .illu-left
+    position: relative
+    overflow: hidden
+    height: 0
+    h3
+      font-style: italic
+      color: #FFF!important
+    .text
+      text-align: center
+      width: 100%
+      top: 50%
+      transform: translateY(-50%)
+    a
+      transition: all 5s
+      z-index: 8
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      position: absolute
+      background: url('assets/images/outils.jpg') no-repeat center center
+      background-size: cover
+      overflow: hidden
+      transform: scale(1)
+      &:hover
+        background-size: cover
+        transform: scale(1.2)
+        /*&::after
+          opacity: 0
+      &:after
+        background: rgba(0, 0, 0, 0.6)
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        content: ""
+        pointer-events: none
+        transition: .4s all
+  .illu-right
+    position: relative
+    overflow: hidden
+    height: 0
+    /*&:hover
+      h3
+        color: #FFF!important
+    h3
+      font-style: italic
+      color: #333!important
+      font-weight: bold
+      transition: .5s color
+    .text
+      text-align: center
+      width: 100%
+      top: 50%
+      transform: translateY(-50%)
+    a
+      top: 0
+      transition: all 5s
+      left: 0
+      bottom: 0
+      right: 0
+      position: absolute
+      background: url('assets/images/nathan_scie_1.jpg') no-repeat center center
+      background-size: cover
+      &:hover
+        transform: scale(1.2)
+        /*&::after
+          opacity: 0
+      &:after
+        background: rgba(196, 154, 109, 0.85)
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        content: ""
+        pointer-events: none
+        transition: 0.4s all
+
+#menu
+  position: fixed
+  top: 0
+  z-index: 999
+  left: -100%
+.fa-times
+  color: $beige
+  width: 50px
+  height: 50px
+  position: absolute
+  z-index: 10
+  right: 20px
+  top: 20px
+  font-size: 30px!important
+  &:hover
+    cursor: pointer
+
+.filo__album__thumbs
+  @media (max-width: 950px)
+    text-align: center
+    padding-left: 75px!important
+    .filo__album__thumbs__thumb
+      width: 48%
+      display: inline-block
+      margin: 10px 1%
+      max-width: 50%
+      
+  @media (max-width: $xs)
+    padding-left: 0!important
+    text-align: center
+    .filo__album__thumbs__thumb
+      width: 100%
+      display: block
+      max-width: 75%
+      margin: 10px auto
+.filo__album__thumbs__thumb
+  overflow: hidden
+  &::after
+    content: ""
+    position: absolute
+    top: 10px
+    left: 10px
+    right: 10px
+    bottom: 10px
+    border: 2px solid $beige
+    opacity: 1
+    transition: .3s all
+  i
+    transition: .3s all
+    &::after
+      content: ""
+      position: absolute
+      top: 0px
+      left: 0px
+      right: 0px
+      bottom: 0px
+      background: rgba(0,0,0,0.8)
+      transition: .3s all
+  &:hover
+    &::after
+      opacity: 0
+    i
+      transform: scale(1.1)
+      &::after
+        opacity: 0
+
+#scroll
+  animation: bounce 2s ease infinite
+  color: #FFF
+  font-size: 32px
+  position: absolute
+  bottom: 0px
+  width: 100%
+  padding: 20px
+  text-align: center
+  text-decoration: none
+@keyframes bounce
+  50%
+    transform: translateY(-50%)
+
+  100%
+    transform: translateY(0)
+
+
+.filo__overlay__container__full
+  display: none
+
+.filo__overlay__container__right
+  .arrow-right
+    height: 75px!important
+    background-size: contain!important
+    top: 50%
+    margin-top: 0!important
+
+.filo__overlay__container__left
+  .arrow-left
+    height: 75px!important
+    background-size: contain!important
+    top: 50%
+    margin-top: 0!important

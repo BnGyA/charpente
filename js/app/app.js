@@ -140,7 +140,7 @@ $('.link').click(function(e){
       }
     }
     if (scrolled_id !== id) {
-      id = scrolled_id
+      id = scrolled_id;
       $navbara.removeClass('current');
       hash($('a[href="#' + id + '"]', $navbar).attr('href'));
       $('a[href="#' + id + '"]', $navbar).addClass('current');
@@ -241,7 +241,27 @@ $('.link').click(function(e){
     TweenMax.to(d, 1 , {css: {opacity:"1"}, scale:1, delay: 1});
   };
 
+  /*-----------------------------------------------------------------------------------*/
+  /*	ScrollReveal
+  /*-----------------------------------------------------------------------------------*/
+  var srReveal = {
+  easing   : 'ease-in-out',
+  scale    : 1,
+  viewFactor: 0.25,
+  reset: false
+  };
 
+  var boxReveal = {
+  easing   : 'ease-in-out',
+  scale    : 1,
+  viewFactor: 0.25,
+  reset: false,
+  mobile: false
+  };
+
+  window.sr = ScrollReveal();
+  sr.reveal('.sr', srReveal);
+  sr.reveal('.box', boxReveal);
 
   /*-----------------------------------------------------------------------------------*/
   /*	Init

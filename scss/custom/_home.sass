@@ -1,5 +1,10 @@
 $gutter: 70px
 
+body
+  width: 100%
+  overflow-x: hidden
+
+
 #bordered
   border: 0px solid #fff
   position: fixed
@@ -90,7 +95,8 @@ h3
     left: 50%
     top: 50%
     transform: translateX(-50%) translateY(-50%)
-
+    @media (max-width: $xs)
+      width: 75%
 nav
   width: 90%
   height: 100vh
@@ -117,6 +123,8 @@ nav
       left: 0
   &.is-really-closed
     left: -100%!important
+    @media (max-width: $xs)
+      left: 0%!important
   #devis
     width: 50px
     height: 50px
@@ -585,6 +593,14 @@ footer
   top: 0
   background: #FFF
   left: -100%
+  height: 100%
+  .full
+
+  .devis
+    position: absolute
+    top: 50%
+    transform: translateY(calc(-50% + 80px))
+
   .left, .right
     display: inline-block
     width: 50%
@@ -645,19 +661,25 @@ input[type="checkbox"]
   display: none
 input[type="checkbox"] + label span
   display: inline-block
-  width: 18px
-  height: 18px
-  margin: -1px 4px 0 0
+  width: 20px
+  height: 20px
+  //margin: -1px 4px 0 0
   vertical-align: middle
   background: transparent
   cursor: pointer
   border: 1px solid $beige
   margin-right: 15px
+  position: relative
 
-input[type="checkbox"]:checked + label span
-  background: url('../img/icon/v-01.png') no-repeat center -1px
-  background-size: contain
-  padding: 5px
+input[type="checkbox"]:checked + label span::after
+  content: ""
+  position: absolute
+  width: 15px
+  top: 2px
+  left: 2px
+  height: 15px
+  background: $beige
+
 
 
 .devis
@@ -709,9 +731,14 @@ input[type="checkbox"]:checked + label span
     font-size: 16px
     margin: 0
     vertical-align: top
+    @media (max-width: $xs)
+      width: 100%
+      height: auto
   .menu-left
     background: #FFF
     font-size: 0
+    @media (max-width: $xs)
+      height: 80%
     h3
       color: #000
       display: inline-block
@@ -757,9 +784,35 @@ input[type="checkbox"]:checked + label span
         span
           background: $beige
           color: #FFF
+    @media (max-width: $xs)
+      position: relative
+      h3
+        display: block
+        text-align: center
+        width: 100%
+        padding-top: 50px
+      .container
+        width: 100%
+        height: auto
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        .content
+          left: auto
+          position: relative
+          width: 80%
+          margin: 0 auto
+          text-align: center
+          transform: translateY(0)
+          margin-top: 25px
+          a
+            font-size: 30px
   .menu-right
     position: relative
     width: 50%
+    @media (max-width: $xs)
+      height: 20%
+      width: 100%
     .infos
       top: 50%
       width: 100%
@@ -787,6 +840,8 @@ input[type="checkbox"]:checked + label span
     position: relative
     overflow: hidden
     height: 0
+    @media (max-width: $xs)
+      display: none
     h3
       font-style: italic
       color: #FFF!important
@@ -826,6 +881,8 @@ input[type="checkbox"]:checked + label span
     position: relative
     overflow: hidden
     height: 0
+    @media (max-width: $xs)
+      display: none
     /*&:hover
       h3
         color: #FFF!important
@@ -889,7 +946,7 @@ input[type="checkbox"]:checked + label span
       display: inline-block
       margin: 10px 1%
       max-width: 50%
-      
+
   @media (max-width: $xs)
     padding-left: 0!important
     text-align: center
@@ -962,4 +1019,19 @@ input[type="checkbox"]:checked + label span
     height: 75px!important
     background-size: contain!important
     top: 50%
+    margin-top: 0!important
+
+
+.middle
+  top: 50%
+  position: absolute
+  transform: translateY(-50%)
+  @media (max-width: $xs)
+    top: auto
+    position: relative
+    transform: translateY(0)
+#process
+  h2
+    padding-top: 0
+  .owl-carousel
     margin-top: 0!important

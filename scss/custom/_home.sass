@@ -90,11 +90,18 @@ h3
     background: #000
     opacity: 0.8
   #logo
-    width: 700px
+    width: 300px
     position: absolute
     left: 50%
     top: 50%
     transform: translateX(-50%) translateY(-50%)
+    animation: fadeIn 3s 3s forwards
+    @keyframe fadeIn
+      0%
+        opacity: 0
+      100%
+        opacity: 1
+
     @media (max-width: $xs)
       width: 75%
 nav

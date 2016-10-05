@@ -68,6 +68,8 @@
   };
 
 
+
+
   function closeDevis(){
     var tl = new TimelineLite();
     tl.to("#loader", 0 , {width:"0", left:"0", right:"auto"})
@@ -76,7 +78,12 @@
     .to("#loader", 0.5 , {opacity:"1", width:'0%', left:"auto", right:"0"})
   };
 
-
+  function animLogo(){
+    var tl = new TimelineLite();
+    tl.to("#logo", 0 , {opacity: '0', transform:  'scale(0)'})
+    .to("#logo", 2 , {opacity:"1", transform: 'scale(1)'})
+    console.log('yolo');
+  };
 
   /*-----------------------------------------------------------------------------------*/
   /*	ScrollTo
@@ -227,6 +234,7 @@ $('.link').click(function(e){
     	$('#js-filojs').filo(options);
     });
     init();
+    animLogo();
   });
 
   function init(){

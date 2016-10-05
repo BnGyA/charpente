@@ -89,21 +89,14 @@ h3
     bottom: 0
     background: #000
     opacity: 0.8
+  .centerxy
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
   #logo
     width: 300px
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translateX(-50%) translateY(-50%)
-    transition: all .3s ease-out
-    animation: fadeIn 3s forwards infinite
-    @keyframe fadeIn
-      0%
-        opacity: 0
-        -webkit-transform: scale(0)
-      100%
-        opacity: 1
-        -webkit-transform: scale(1)
+    position: relative
 
     @media (max-width: $xs)
       width: 75%

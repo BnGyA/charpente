@@ -95,12 +95,15 @@ h3
     left: 50%
     top: 50%
     transform: translateX(-50%) translateY(-50%)
-    animation: fadeIn 3s 3s forwards
+    transition: all .3s ease-out
+    animation: fadeIn 3s forwards infinite
     @keyframe fadeIn
       0%
         opacity: 0
+        -webkit-transform: scale(0)
       100%
         opacity: 1
+        -webkit-transform: scale(1)
 
     @media (max-width: $xs)
       width: 75%

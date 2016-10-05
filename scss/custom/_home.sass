@@ -634,7 +634,7 @@ footer
     top: 50%
     padding-top: 220px
     transform: translateY(calc(-50% + 80px))
-    @media (max-width: 400px)
+    @media (max-width: 700px)
       position: absolute
       left: 10%
       display: block
@@ -693,10 +693,15 @@ footer
       position: absolute
       right: 0
       bottom: 0
+      @media (max-width: 700px)
+        position: fixed
+        bottom: -120px
+        width: 100%
       @media (max-width: 400px)
         position: fixed
         bottom: -350px
         width: 100%
+
 
 ::-webkit-input-placeholder
    color: $beige
@@ -736,7 +741,7 @@ input[type="checkbox"]:checked + label span::after
 .devis
   .right
     padding-left: 75px
-    @media (max-width: 400px)
+    @media (max-width: 700px)
       padding-left: 0
       padding-bottom: 200px
     label
@@ -1105,6 +1110,10 @@ input[type="checkbox"]:checked + label span::after
 #contact
   .devis
     .left
-      @media (max-width: 400px)
+      @media (max-width: 700px)
+        display: inline-block
+        width: 100%!important
+    .right
+      @media (max-width: 700px)
         display: inline-block
         width: 100%!important

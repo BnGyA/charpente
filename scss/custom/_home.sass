@@ -537,6 +537,8 @@ footer
     @media (max-width: $xss)
       position: relative
       top: 220px
+      margin: 0 auto
+      width: 80%
   .copy
     color: #FFFFFF
     font-size: 11px
@@ -547,7 +549,8 @@ footer
     @media (max-width: 400px)
       position: relative
       top: 220px
-
+      width: 80%
+      margin: 0 auto
 
 
 .contacts
@@ -1045,8 +1048,10 @@ input[type="checkbox"]:checked + label span::after
     top: 50%
     margin-top: 0!important
     @media (max-width: 400px)
+      background-size: contain!important
       height: 40px!important
       width: 20px
+      top: 20%
 
 
 .filo__overlay__container__left
@@ -1055,6 +1060,11 @@ input[type="checkbox"]:checked + label span::after
     background-size: contain!important
     top: 50%
     margin-top: 0!important
+    @media (max-width: 400px)
+      background-size: contain!important
+      height: 40px!important
+      width: 20px
+      top: -100px
 
 
 .middle

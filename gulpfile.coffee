@@ -65,7 +65,7 @@ gulp.task 'default', ->
         notify: false
         server: {baseDir: './'}
 #WATCH
-    gulp.watch ['*.html'], browserSync.reload
+    gulp.watch ['**/*.html'], browserSync.reload
     gulp.watch "#{path.img}pictures/@2x/*.jpg", ['compressNonRetina']
     gulp.watch "#{path.scss}**/*.sass", ['sass']
     gulp.watch "#{path.js}**/*.js", ['compress']

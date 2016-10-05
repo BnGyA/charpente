@@ -632,7 +632,7 @@ footer
   .devis
     position: absolute
     top: 50%
-    padding-top: 300px
+    padding-top: 220px
     transform: translateY(calc(-50% + 80px))
     @media (max-width: 400px)
       position: absolute
@@ -648,14 +648,10 @@ footer
 
   .left, .right
     display: inline-block
-    width: 100%
-    float: left
+    width: 50%
     font-size: 16px
     text-align: left
-    @media (width: 400px)
-      display: inline-block
-      width: 100%
-      float: none
+
 
   h2
     padding-top: 0
@@ -679,7 +675,7 @@ footer
     font-family: $source
   .right
     position: relative
-    padding-bottom: 150px
+    padding-bottom: 400px
     label
       display: block
       font-family: $source
@@ -697,6 +693,10 @@ footer
       position: absolute
       right: 0
       bottom: 0
+      @media (max-width: 400px)
+        position: fixed
+        bottom: -350px
+        width: 100%
 
 ::-webkit-input-placeholder
    color: $beige
@@ -1100,3 +1100,11 @@ input[type="checkbox"]:checked + label span::after
     padding-top: 0
   .owl-carousel
     margin-top: 0!important
+
+
+#contact
+  .devis
+    .left
+      @media (max-width: 400px)
+        display: inline-block
+        width: 100%!important

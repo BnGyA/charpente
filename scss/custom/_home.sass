@@ -633,10 +633,13 @@ footer
   @media (max-width: 400px)
     padding: 55px $gutter 100px
   .full
-    position: relative
-    top: 150px
-    width: 100%!important
 
+  @media (max-width: 700px)
+    .full
+      position: absolute
+      top: 299px
+      left: 10%
+      width: 80%
   .devis
     position: absolute
     top: 50%
@@ -658,7 +661,6 @@ footer
     width: 50%
     font-size: 16px
     text-align: left
-
 
   h2
     padding-top: 0
